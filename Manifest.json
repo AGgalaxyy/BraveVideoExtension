@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Fullscreen Background Video",
+  "version": "1.0.0",
+  "description": "Plays a looping MP4 as fullscreen background on new tab and search pages.",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.google.com/search*",
+        "*://www.bing.com/search*",
+        "*://duckduckgo.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["video.mp4"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
